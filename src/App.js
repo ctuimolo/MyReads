@@ -17,10 +17,14 @@ class BooksApp extends Component {
     sortShelves() {
         BooksAPI.getAll().then(function (booksArray) {
             booksArray.forEach(function (book) {
-                // console.log(book) // prints all 7 books
+                // prints all 7 books
                 this.setState({allBooks: book})
             })
         })
+    }
+
+    componentDidMount() {
+        this.sortShelves()
     }
 
     render() {
@@ -28,7 +32,6 @@ class BooksApp extends Component {
             <BrowserRouter basename={process.env.REACT_APP_BASENAME || '/'}>
                 <div className="app">
 
-                    {this.sortShelves()}
 
                     <Route path="/search" render={() => (
                         <div className="search-books">
