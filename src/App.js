@@ -8,7 +8,7 @@ import './App.css'
 
 class BooksApp extends Component {
     state = {
-        allBooksIDs: [],
+        allBooks: [],
         currentlyReading: [],
         wantToRead: [],
         read: []
@@ -17,8 +17,8 @@ class BooksApp extends Component {
     sortShelves() {
         BooksAPI.getAll().then(function (booksArray) {
             booksArray.forEach(function (book) {
-                this.allBooksIDs.push(book.id)
-                // console.log(book.id) // prints booksArray[book][id]
+                // console.log(book) // prints all 7 books
+                this.setState({allBooks: book})
             })
         })
     }
