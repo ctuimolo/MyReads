@@ -25,7 +25,7 @@ class BooksApp extends Component {
         })
     }
 
-    sortShelves() {
+    sortShelves = () => {
         BooksAPI.getAll().then((allBooks) => {
 
             this.setState({
@@ -45,13 +45,13 @@ class BooksApp extends Component {
     }
 
     updateBook = (book, shelf) => {
-        BooksAPI.update(book, shelf)
-        this.sortShelves()
+        BooksAPI.update(book, shelf).then(this.sortShelves)
     }
 
     componentDidMount() {
         this.sortShelves()
     }
+
 
     render() {
         return (

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class ListBooks extends Component {
 
-    updateSelect(book, event) {
+    updateSelect = (book, event) => {
         this.props.updateBook(book, event.target.value)
     }
 
