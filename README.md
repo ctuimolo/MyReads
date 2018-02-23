@@ -1,6 +1,6 @@
 2.22.18
 Project developed in accordance to Udacity's online React nanodegree program
-developed with Create React App and Udacity starter code @ github.com/udacity/reactnd-project-myreads-starter
+developed with Create React App and Udacity starter code @ (github.com/udacity/reactnd-project-myreads-starter)
 
 PROJECT 1: MYREADS
 SUBMISSION: Chaiz Tuimoloau (tuimoloau@gmail.com)
