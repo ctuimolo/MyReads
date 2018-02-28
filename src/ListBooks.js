@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class ListBooks extends Component {
+
+    PropTypes = {
+        booksArray: PropTypes.array.isRequired,
+        findBookshelf: PropTypes.func.isRequired,
+        updateBook: PropTypes.func.isRequired
+    }
 
     updateSelect = (book, event) => {
         this.props.updateBook(book, event.target.value)

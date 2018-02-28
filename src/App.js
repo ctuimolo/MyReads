@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 import ListBooks from './ListBooks'
+import Bookshelf from './Bookshelf'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
@@ -59,6 +60,7 @@ class BooksApp extends Component {
                 <div className="app">
 
                     <Route path="/search" render={() => (
+
                         <div className="search-books">
                             <div className="search-books-bar">
                                 <Link className="close-search" to="/" onClick={() => this.setState({searchResults:[]})}>Close search</Link>
@@ -89,47 +91,30 @@ class BooksApp extends Component {
                                 <h1>MyReads</h1>
                             </div>
                             <div className="list-books-content">
-                                <div>
 
-                                    <div className="bookshelf">
-                                        <h2 className="bookshelf-title">Currently Reading</h2>
-                                        <div className="bookshelf-books">
+                                    <Bookshelf
+                                        bookshelfTitle="Currenty Reading"
+                                        booksArray={this.state.currentlyReading}
+                                        findBookshelf={this.findBookshelf}
+                                        updateBook={this.updateBook}
+                                    />
 
-                                            <ListBooks
-                                                booksArray={this.state.currentlyReading}
-                                                findBookshelf={this.findBookshelf}
-                                                updateBook={this.updateBook}
-                                            />
 
-                                        </div>
-                                    </div>
+                                    <Bookshelf
+                                        bookshelfTitle="Want to Read"
+                                        booksArray={this.state.wantToRead}
+                                        findBookshelf={this.findBookshelf}
+                                        updateBook={this.updateBook}
+                                    />
 
-                                    <div className="bookshelf">
-                                        <h2 className="bookshelf-title">Want to Read</h2>
-                                        <div className="bookshelf-books">
 
-                                            <ListBooks
-                                                booksArray={this.state.wantToRead}
-                                                findBookshelf={this.findBookshelf}
-                                                updateBook={this.updateBook}
-                                            />
+                                    <Bookshelf
+                                        bookshelfTitle="Read"
+                                        booksArray={this.state.read}
+                                        findBookshelf={this.findBookshelf}
+                                        updateBook={this.updateBook}
+                                    />
 
-                                        </div>
-                                    </div>
-
-                                    <div className="bookshelf">
-                                        <h2 className="bookshelf-title">Read</h2>
-                                        <div className="bookshelf-books">
-
-                                            <ListBooks
-                                                booksArray={this.state.read}
-                                                findBookshelf={this.findBookshelf}
-                                                updateBook={this.updateBook}
-                                            />
-
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div className="open-search">
                                 <Link to="/search" className="search-book" onClick={() => this.setState({ searchResults: [] })}>Search book</Link>
